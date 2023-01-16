@@ -27,7 +27,7 @@ const restaurant = {
     },
   },
 };
-
+/*
 //Coding Challenge No.1
 const game = {
   team1: 'Bayern Munich',
@@ -85,3 +85,89 @@ printGoals(...game.scored)
 team1 > team2 && console.log(`Team one is more likely to win`);
 team1 < team2 && console.log(`Team two is more likely to win`);
 // console.log(...game.scored);
+*/
+
+
+//Practice of For OF loop
+/*
+const menu = [...restaurant.starterMenu, ...restaurant.mainMenu]
+for (const item of menu)
+  console.log(item);
+for (const item of menu.entries()) {
+  const [index, name1] = item;
+  console.log(`${index} have value of ${name1}`);
+
+}
+*/
+
+//Lecture Enhanced Object Literals
+/*
+We can declare function(methods) in objects without declaring function() keyword
+we can add an object to inside an another object by just mentioning it's name
+3rd is ..
+*/
+
+//Lecture Optional Operator ? (question mark sign for checking if a property exist or not)
+
+//Lecture on loop on objects; Object.keys(object/property Name) object,values(name)
+
+const game = {
+  team1: 'Bayern Munich',
+  team2: 'Borrussia Dortmund',
+  players: [
+    [
+      'Neuer',
+      'Pavard',
+      'Martinez',
+      'Alaba',
+      'Davies',
+      'Kimmich',
+      'Goretzka',
+      'Coman',
+      'Muller',
+      'Gnarby',
+      'Lewandowski',
+    ],
+    [
+      'Burki',
+      'Schulz',
+      'Hummels',
+      'Akanji',
+      'Hakimi',
+      'Weigl',
+      'Witsel',
+      'Hazard',
+      'Brandt',
+      'Sancho',
+      'Gotze',
+    ],
+  ],
+  score: '4:0',
+  scored: ['Lewandowski', 'Gnarby', 'Lewandowski',
+    'Hummels'],
+  date: 'Nov 9th, 2037',
+  odds: {
+    team1: 1.33,
+    x: 3.25,
+    team2: 6.5,
+  },
+};
+for (const x of game.scored.entries()) {
+  const [goal, score] = x;
+  console.log(`Goal ${goal + 1}: ${score}`);
+
+}
+
+const odd = Object.values(game.odds);
+let average = 0;
+for (const x of odd) {
+  average += x;
+}
+average /= odd.length;
+console.log(average);
+for (const x of Object.entries(game.odds)) {
+  const [team, score] = x;
+  const teamStr = team === 'x' ? 'draw' : `Victory ${game[team]}`
+  console.log(`Odd of ${teamStr} ${score}`);
+
+}
