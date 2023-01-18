@@ -3,8 +3,18 @@
 // Data needed for a later exercise
 const flights =
   '_Delayed_Departure;fao93766109;txl2133758440;11:25+_Arrival;bru0943384722;fao93766109;11:45+_Delayed_Arrival;hel7439299980;fao93766109;12:05+_Departure;fao93766109;lis2323639855;12:30';
+const arr = flights.split('+')
+const a = arr[0];
 
-// Data needed for first part of the section
+for (const [i, x] of arr.entries()) {
+  const a = x;
+  const [flight, from, to, time] = a.split(';')
+  const result = `${flight.startsWith('_Delayed') ? '🔴' : ' '} ${flight.replaceAll('_', ' ')} from ${from.slice(0, 3).toUpperCase()} to ${to.slice(0, 3).toUpperCase()} (${time.replace(':', 'h')})`;
+  console.log(`${result.padStart(40)}`);
+
+}
+
+/*
 const restaurant = {
   name: 'Classico Italiano',
   location: 'Via Angelo Tavanti 23, Firenze, Italy',
@@ -27,6 +37,7 @@ const restaurant = {
     },
   },
 };
+*/
 /*
 //Coding Challenge No.1
 const game = {
@@ -179,7 +190,7 @@ for (const x of Object.entries(game.odds)) {
 //Lecture on sets and maps
 
 //Coding Challenge 3
-
+/*
 const game = {
   team1: 'Bayern Munich',
   team2: 'Borrussia Dortmund',
@@ -246,3 +257,31 @@ for (const [key, value] of gameEvents) {
   console.log(`${key < 45 ? '[First Half]' : '[Second Half]'} ${key}: ${value}`);
 
 }
+*/
+
+//String Methods 
+/*
+const aName = 'Abdul Sattar';
+console.log(aName.slice(-5));
+console.log(aName.replaceAll('a', 'i'));
+
+//Coding Challenge 4
+document.body.append(document.createElement('textarea'));
+
+document.body.append(document.createElement('button'));
+const button = document.querySelector('button');
+console.log(button);
+
+button.addEventListener('click', function () {
+  const value = document.querySelector('textarea').value;
+  const list = value.split('\n')
+  for (const [i, x] of list.entries()) {
+    const [first, second] = x.toLowerCase().trim().split('_');
+    // console.log(`${first}${second[0].toUpperCase()}${second.slice(1)}`);
+    const output = `${first}${second.replace(second[0], second[0].toUpperCase())}`;
+    console.log(`${output.padEnd(20)} ${'✅'.repeat(i + 1)}`);
+
+  }
+})
+
+*/
